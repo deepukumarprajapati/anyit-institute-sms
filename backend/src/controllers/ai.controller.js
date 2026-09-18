@@ -13,12 +13,19 @@ const getGroq = () => {
 
 const chat = async (messages, maxTokens = 1024) => {
   const groq = getGroq();
-  const res = await groq.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+  try {
+    const res = await groq.chat.completions.create({
+      model: "openai/gpt-oss-20b",
       messages,
-       max_tokens: maxTokens
-       });
-  return res.choices[0].message.content;
+      max_tokens: maxTokens,
+    });
+    return res.choices[0].message.content;
+  } catch (error) {
+    if (error.status === 401 || error.code === "invalid_api_key") {
+      throw new Error("GROQ_API_KEY is invalid or expired. Create a new key in the Groq Console.");
+    }
+    throw error;
+  }
 };
 
 
