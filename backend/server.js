@@ -6,15 +6,18 @@ const http       = require("http");
 const path       = require("path");
 const { Server } = require("socket.io");
 const connectDB  = require("./src/config/connectdb");
+const { getJwtSecret } = require("./src/config/security");
 
 const app    = express();
 const server = http.createServer(app);
 const PORT   = process.env.PORT || 5000;
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:8080";
+getJwtSecret();
 
 // ── SOCKET.IO SETUP ──────────────────────────────────────────
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "*",
+    origin: CLIENT_URL,
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -27,7 +30,7 @@ app.use((req, _res, next) => { req.io = io; next(); });
 // ── MIDDLEWARE ───────────────────────────────────────────────
 const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 200 });
 app.use(limiter);
-app.use(cors({ origin: process.env.CLIENT_URL || "*", credentials: true }));
+app.use(cors({ origin: CLIENT_URL, credentials: true }));
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));

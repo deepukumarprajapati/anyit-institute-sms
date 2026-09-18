@@ -40,7 +40,13 @@ export function useChat(options: UseChatOptions) {
     const token = localStorage.getItem("eduflow_token");
     if (!token) return;
 
-    const socket = io("http://localhost:5000", {
+    const configuredSocketUrl = import.meta.env.VITE_SOCKET_URL;
+    const configuredApiUrl = import.meta.env.VITE_API_URL;
+    const socketUrl = configuredSocketUrl ||
+      (configuredApiUrl && configuredApiUrl.startsWith("http")
+        ? configuredApiUrl.replace(/\/api\/?$/, "")
+        : "http://localhost:5000");
+    const socket = io(socketUrl, {
       auth: { token },
       transports: ["websocket"],
     });

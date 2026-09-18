@@ -5,6 +5,7 @@ const Student  = require("../models/Student");
 const Parent   = require("../models/Parent");
 const Message  = require("../models/Message");
 const Conversation = require("../models/Conversation");
+const { getJwtSecret } = require("../config/security");
 
 const roleModelMap = { schooladmin: Admin, teacher: Teacher, student: Student, parent: Parent };
 
@@ -19,7 +20,7 @@ module.exports = (io) => {
       const token = socket.handshake.auth?.token || socket.handshake.query?.token;
       if (!token) return next(new Error("Authentication required"));
 
-      const decoded = jwt.verify(token, process.env.JWT_SECRET || "SECRET_KEY");
+      const decoded = jwt.verify(token, getJwtSecret());
       const Model = roleModelMap[decoded.role];
       if (!Model) return next(new Error("Invalid role"));
 

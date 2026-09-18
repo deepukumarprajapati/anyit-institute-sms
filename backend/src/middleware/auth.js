@@ -3,6 +3,7 @@ const Admin   = require("../models/Admin");
 const Teacher = require("../models/Teacher");
 const Student = require("../models/Student");
 const Parent  = require("../models/Parent");
+const { getJwtSecret } = require("../config/security");
 
 const roleModelMap = { schooladmin: Admin, teacher: Teacher, student: Student, parent: Parent };
 
@@ -12,7 +13,7 @@ exports.protect = async (req, res, next) => {
     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer"))
       token = req.headers.authorization.split(" ")[1];
     if (!token) return res.status(401).json({ success: false, message: "Not authorized. No token." });
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || "SECRET_KEY");
+    const decoded = jwt.verify(token, getJwtSecret());
     const Model = roleModelMap[decoded.role];
     if (!Model) return res.status(401).json({ success: false, message: "Invalid token role." });
     const user = await Model.findById(decoded.id).select("-password");
