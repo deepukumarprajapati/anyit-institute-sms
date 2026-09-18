@@ -1,7 +1,7 @@
 {
   "format": "school-management-data",
   "version": 1,
-  "exportedAt": "2026-09-18T04:24:45.022Z",
+  "exportedAt": "2026-09-18T05:50:58.758Z",
   "database": "school_db",
   "collections": {
     "attendances": [
@@ -4156,7 +4156,7 @@
         "lastMessageAt": "2026-09-12T04:30:00.000Z",
         "lastSenderId": "6aacbabd646f24dbd5930f86",
         "createdAt": "2026-09-18T04:14:55.163Z",
-        "updatedAt": "2026-09-18T04:14:55.163Z",
+        "updatedAt": "2026-09-18T05:09:52.981Z",
         "__v": 0
       },
       {
@@ -4176,11 +4176,11 @@
             "unread": 0
           }
         ],
-        "lastMessage": "I am not sure. I will let you soon",
-        "lastMessageAt": "2026-09-18T04:18:16.803Z",
+        "lastMessage": "No, Today i am not coming, Will continue wfh",
+        "lastMessageAt": "2026-09-18T05:10:37.121Z",
         "lastSenderId": "6aacbabd646f24dbd5930f98",
         "createdAt": "2026-09-18T04:16:53.743Z",
-        "updatedAt": "2026-09-18T04:19:46.234Z",
+        "updatedAt": "2026-09-18T05:49:55.432Z",
         "__v": 0
       }
     ],
@@ -12055,11 +12055,11 @@
         "senderRole": "teacher",
         "senderName": "Ravi Kumar",
         "text": "Your child's attendance report is ready.",
-        "read": false,
-        "readAt": null,
+        "read": true,
+        "readAt": "2026-09-18T05:09:52.966Z",
         "school": "6aacbabc646f24dbd5930f67",
         "createdAt": "2026-09-11T04:30:00.000Z",
-        "updatedAt": "2026-09-18T04:14:55.166Z",
+        "updatedAt": "2026-09-18T05:09:52.966Z",
         "__v": 0
       },
       {
@@ -12083,11 +12083,11 @@
         "senderRole": "schooladmin",
         "senderName": "Anita Sharma",
         "text": "Hello",
-        "read": false,
-        "readAt": null,
+        "read": true,
+        "readAt": "2026-09-18T04:29:19.092Z",
         "school": "6aacbabc646f24dbd5930f67",
         "createdAt": "2026-09-18T04:17:40.712Z",
-        "updatedAt": "2026-09-18T04:17:40.712Z",
+        "updatedAt": "2026-09-18T04:29:19.092Z",
         "__v": 0
       },
       {
@@ -12097,11 +12097,11 @@
         "senderRole": "schooladmin",
         "senderName": "Anita Sharma",
         "text": "Are you coming today ?",
-        "read": false,
-        "readAt": null,
+        "read": true,
+        "readAt": "2026-09-18T04:29:19.092Z",
         "school": "6aacbabc646f24dbd5930f67",
         "createdAt": "2026-09-18T04:17:54.192Z",
-        "updatedAt": "2026-09-18T04:17:54.192Z",
+        "updatedAt": "2026-09-18T04:29:19.092Z",
         "__v": 0
       },
       {
@@ -12116,6 +12116,34 @@
         "school": "6aacbabc646f24dbd5930f67",
         "createdAt": "2026-09-18T04:18:16.801Z",
         "updatedAt": "2026-09-18T04:18:32.346Z",
+        "__v": 0
+      },
+      {
+        "_id": "6aacc7b683070de39c704481",
+        "conversation": "6aacbb3551c893b44cfb3c6b",
+        "sender": "6aacbabc646f24dbd5930f67",
+        "senderRole": "schooladmin",
+        "senderName": "Anita Sharma",
+        "text": "Now can you confirm ?",
+        "read": false,
+        "readAt": null,
+        "school": "6aacbabc646f24dbd5930f67",
+        "createdAt": "2026-09-18T05:10:14.362Z",
+        "updatedAt": "2026-09-18T05:10:14.362Z",
+        "__v": 0
+      },
+      {
+        "_id": "6aacc7cd83070de39c704482",
+        "conversation": "6aacbb3551c893b44cfb3c6b",
+        "sender": "6aacbabd646f24dbd5930f98",
+        "senderRole": "student",
+        "senderName": "Tara",
+        "text": "No, Today i am not coming, Will continue wfh",
+        "read": true,
+        "readAt": "2026-09-18T05:11:03.514Z",
+        "school": "6aacbabc646f24dbd5930f67",
+        "createdAt": "2026-09-18T05:10:37.120Z",
+        "updatedAt": "2026-09-18T05:11:03.514Z",
         "__v": 0
       }
     ],
